@@ -1,0 +1,35 @@
+body{
+    background-image: url("https://d1m75rqqgidzqn.cloudfront.net/wp-data/2021/02/05185702/iStock-847292080.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#page{
+    display:inline-flex;
+    flex-direction: row;
+    justify-content:space-around;
+}
+#heading{
+    font-size: 50px;
+    font-weight:bolder;
+    font-style:normal;
+
+    color: crimson;
+    border-bottom:2pt solid darkcyan;
+}
+.heading1{
+    font-size: 30px;
+    font-weight:bold;
+    font-style:normal;
+    color: rgb(141, 114, 119);
+}
+#button{
+    font-size: 20px;
+    border-radius: 7px;
+    transition-duration: 0.3s;
+    cursor: help ;
+}
+#image{
+    /* display: block; */
+    width: 20px;
+    height: auto;
+}

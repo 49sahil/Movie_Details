@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <style>
+            body{
+    background-image: url("https://d1m75rqqgidzqn.cloudfront.net/wp-data/2021/02/05185702/iStock-847292080.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#page{
+    display:inline-flex;
+    flex-direction: row;
+    justify-content:space-around;
+}
+#heading{
+    font-size: 50px;
+    font-weight:bolder;
+    font-style:normal;
+
+    color: crimson;
+    border-bottom:2pt solid darkcyan;
+}
+.heading1{
+    font-size: 30px;
+    font-weight:bold;
+    font-style:normal;
+    color: rgb(141, 114, 119);
+}
+#button{
+    font-size: 20px;
+    border-radius: 7px;
+    transition-duration: 0.3s;
+    cursor: help ;
+}
+#image{
+    /* display: block; */
+    width: 20px;
+    height: auto;
+}
+        </style>
+    </head>
+
+    <body>
+        <div id="heading" style="text-align: center;">Enter the movie name
+            <input id="name" value="" />
+            <button id="button" onclick="runclick()">Get Details
+            </button>
+            <div class="heading1"> Movie Year </div>
+            <div id="year" class="heading" > </div>
+        </div>
+        <div id="page">
+            <div id="details">
+                <div id="image"> </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        async function moviedetail(name){
+            let raw= await fetch('https://imdb-api.com/en/API/SearchMovie/k_c19r5q03/' + name);
+            let newraw= await raw.json();
+            document.getElementById("year").innerHTML= newraw['results'][0]['description'];
+            let im=newraw['results'][0]['image'];
+            document.getElementById("image").innerHTML= '<div id=imageout style="max-width:50%;height:auto;">'+'<img src=' + im + 'alt="poster" >' + '</div>';
+            // console.log(newraw);
+        }
+        function runclick(){
+            let namee= document.getElementById("name").value;
+            let answers= moviedetail(namee);
+        }
+    </script>
+</html>
